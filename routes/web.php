@@ -13,8 +13,8 @@ Route::get('/', function () {
 
 Route::get('/test-db', function () {
     $master = DB::connection('mysql')->select('SELECT DATABASE() as db');
-    $second = DB::connection('second_mysql')->select('SELECT DATABASE() as db');
-    $third = DB::connection('third_mysql')->select('SELECT DATABASE() as db');
+    $second = DB::connection('mysql2')->select('SELECT DATABASE() as db');
+    $third = DB::connection('mysql3')->select('SELECT DATABASE() as db');
 
     return response()->json([
         'master' => $master[0]->db,

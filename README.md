@@ -1,66 +1,202 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# 📦 Warehouse Management System — Master-Slave Replication
 
-## About Laravel
+**Judul Proyek:** Sinkronisasi Server dengan Metode Master-Slave pada Aplikasi Gudang  
+**Mata Kuliah:** Sistem Terdistribusi  
+**Universitas Pelita Bangsa — 2025**
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 📌 Deskripsi
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Aplikasi **Warehouse Management System (WMS)** dikembangkan untuk mendukung operasional gudang dengan sistem database **MySQL Master-Slave**.  
+Tujuan:
+- Menjamin *High Availability*
+- Menjaga konsistensi data real-time
+- Redundansi & skalabilitas
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## ⚙️ Topologi Sistem
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- **Master DB:** Port `3307`
+- **Slave 1:** Port `3309`
+- **Slave 2:** Port `3308`
+- **Slave 3:** Port `3310`
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Semua node **tersinkronisasi** dan **berjalan stabil**.
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## 🚀 Fitur Aplikasi
 
-### Premium Partners
+- CRUD Data Barang
+- Pencatatan Barang Masuk & Keluar
+- Laporan Stok Barang Real-time
+- Backend: Laravel
+- Frontend: Bootstrap
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+---
 
-## Contributing
+## ✅ Status Implementasi
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- Replikasi 1 Master + 3 Slave **berfungsi normal**
+- Multi-koneksi Laravel aktif
+- Sinkronisasi data otomatis
+- Tidak ada kendala teknis
 
-## Code of Conduct
+---
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## 👨‍💻 Tim Pengembang
 
-## Security Vulnerabilities
+- M Ilham Firdaus — 312310021
+- Ismu Nurkhasanah — 312310042
+- Indra Maha Resi — 312310044
+- Alisya Katsulya S — 312310046
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+---
 
-## License
+## 📚 Referensi
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- [Laravel Docs](https://laravel.com/docs/10.x/database)
+- [Bootstrap v5](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
+- [MySQL 8.0 Replication](https://dev.mysql.com/doc/refman/8.0/en/replication.html)
+- [Musaamin.web.id — Replikasi MariaDB](https://musaamin.web.id/cara-replikasi-database-master-slave-mariadb-10-di-ubuntu-16-04/)
+- TechTarget — Master-Slave Replication
+
+---
+
+# 📖 Tutorial — Setup Master-Slave & Laravel Multi-DB
+
+---
+
+## 1️⃣ Persiapan
+
+- Install MySQL/MariaDB di semua node
+- Pastikan semua server satu jaringan LAN
+- Buka port MySQL atau matikan firewall jika perlu
+
+---
+
+## 2️⃣ Konfigurasi Master
+
+**Edit `my.ini`**
+
+```ini
+[mysqld]
+server-id=1
+log-bin=mysql-bin
+bind-address=0.0.0.0
+```
+
+**Buat user replikasi**
+
+```sql
+CREATE USER 'repl'@'%' IDENTIFIED BY 'password';
+GRANT REPLICATION SLAVE ON *.* TO 'repl'@'%';
+FLUSH PRIVILEGES;
+```
+
+**Cek status master**
+
+```sql
+SHOW MASTER STATUS;
+```
+
+Catat *File* dan *Position*.
+
+---
+
+## 3️⃣ Konfigurasi Slave
+
+**Edit `my.ini`**
+
+```ini
+[mysqld]
+server-id=2   # Ganti sesuai Slave
+relay-log=relay-log
+```
+
+**Hubungkan ke Master**
+
+```sql
+CHANGE MASTER TO
+  MASTER_HOST='IP_MASTER',
+  MASTER_USER='repl',
+  MASTER_PASSWORD='password',
+  MASTER_LOG_FILE='mysql-bin.000001',
+  MASTER_LOG_POS=xxx;
+
+START SLAVE;
+```
+
+**Cek status slave**
+
+```sql
+SHOW SLAVE STATUS\G
+```
+
+Pastikan `Slave_IO_Running` dan `Slave_SQL_Running` bernilai `Yes`.
+
+---
+
+## 4️⃣ Multi-DB di Laravel
+
+**Tambahkan di `.env`**
+
+```env
+# Master DB
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3307
+DB_DATABASE=master_db
+DB_USERNAME=root
+DB_PASSWORD=
+
+# Slave 1 DB
+DB_SLAVE1_HOST=127.0.0.1
+DB_SLAVE1_PORT=3309
+DB_SLAVE1_DATABASE=slave1_db
+DB_SLAVE1_USERNAME=root
+DB_SLAVE1_PASSWORD=
+```
+
+**Tambahkan di `config/database.php`**
+
+```php
+'mysql_slave1' => [
+    'driver' => 'mysql',
+    'host' => env('DB_SLAVE1_HOST'),
+    'port' => env('DB_SLAVE1_PORT'),
+    'database' => env('DB_SLAVE1_DATABASE'),
+    'username' => env('DB_SLAVE1_USERNAME'),
+    'password' => env('DB_SLAVE1_PASSWORD'),
+    ...
+],
+```
+
+**Gunakan di kode**
+
+```php
+DB::connection('mysql_slave1')->select(...);
+```
+
+---
+
+## ✅ Tips
+
+- Restart service MySQL/MariaDB setiap ubah konfigurasi.
+- Gunakan `SHOW MASTER STATUS` & `SHOW SLAVE STATUS` untuk monitoring.
+- Pakai `bind-address=0.0.0.0` agar bisa diakses via LAN.
+
+---
+
+## 🚀 Pengembangan Lanjut
+
+- Tambahkan mekanisme failover otomatis
+- Optimasi query: *read* ke Slave, *write* ke Master
+- Integrasi monitoring & alerting
+
+---
+
+**© 2025 Fakultas Teknik — Universitas Pelita Bangsa**
